@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-function SearchBar({ onSearch }) {
+function SearchBar({ onSearch, loading }) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = () => {
-    if (!searchTerm.trim()) return;
+    if (!searchTerm.trim() || loading) return;
     onSearch(searchTerm);
   };
 

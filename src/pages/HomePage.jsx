@@ -37,7 +37,12 @@ function HomePage() {
 
         <SearchBar onSearch={handleSearch} />
 
-        {loading && (<p className="loading-message">Loading movies...</p>)}
+        {loading && (
+          <div className="loading-container">
+          <div className="spinner"></div>
+           <p>Searching movies...</p>
+          </div>
+        )}
         {error && (
          <p className="error-message">
            No movies found. Please try another movie title.

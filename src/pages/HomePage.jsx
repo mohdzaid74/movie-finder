@@ -35,7 +35,7 @@ function HomePage() {
         <h1>Find Your Favorite Movies</h1>
         <p>Search for movies and explore their details.</p>
 
-        <SearchBar onSearch={handleSearch} />
+        <SearchBar onSearch={handleSearch} loading={loading} />
 
         {loading && (
           <div className="loading-container">

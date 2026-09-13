@@ -22,10 +22,11 @@ function SearchBar({ onSearch }) {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         onKeyDown={handleKeyDown}
+        disabled={loading}
       />
 
-      <button onClick={handleSearch}>
-        Search
+      <button onClick={handleSearch} disabled={loading}>
+        {loading ? "Searching..." : "Search"}
       </button>
     </div>
   );

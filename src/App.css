@@ -275,3 +275,9 @@
 .loading-container p {
   color: #9ca3af;
 }
+
+/* Disable Search Button When Loading */
+.search-box button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

@@ -16,12 +16,14 @@ function HomePage() {
     try {
       setLoading(true);
       setError("");
+      setMovies([]);
 
       const data = await searchMovies(query);
 
       setMovies(data.results || []);
     } catch (err) {
-      setError("Something went wrong. Please try again.");
+      console.error("API ERROR:", err);
+      setError(err.message);
     } finally {
       setLoading(false);
     }

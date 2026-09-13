@@ -39,8 +39,8 @@ function HomePage() {
 
         {loading && (<p className="loading-message">Loading movies...</p>)}{error && (<p className="error-message">{error}</p>)}
 
-        {!loading && !error && movies.length === 0 && (<p className="empty-message"> Search for a movie to see results. </p> )}
-
+        
+        {!loading && !error && movies.length === 0 && (<p className="empty-message"> No movies found. Try searching another movie.</p>)} 
         <div className="movie-grid">
           {movies.map((movie) => (
             <MovieCard

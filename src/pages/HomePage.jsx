@@ -50,7 +50,11 @@ function HomePage() {
            No movies found. Please try another movie title.
             </p>
         )}
-
+        {!loading && !error && movies.length > 0 && (
+        <p className="results-count">
+        Found {movies.length} movies
+       </p>
+        )}
         
         {!loading && !error && movies.length === 0 && (<p className="empty-message"> No movies found. Try searching another movie.</p>)} 
         <div className="movie-grid">

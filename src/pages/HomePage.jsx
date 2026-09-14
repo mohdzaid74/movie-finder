@@ -34,10 +34,15 @@ function HomePage() {
       <Header />
 
       <main>
-        <h1>Find Your Favorite Movies</h1>
-        <p>Search for movies and explore their details.</p>
+        <section className="hero">
+          <h1>Find Your Favorite Movies</h1>
+         <p>Search for movies and explore their details.</p>
 
-        <SearchBar onSearch={handleSearch} loading={loading} />
+          <SearchBar
+          onSearch={handleSearch}
+          loading={loading}
+          />
+        </section>
 
         {loading && (
           <div className="loading-container">

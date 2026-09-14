@@ -287,3 +287,36 @@
   color: #9ca3af;
   font-size: 16px;
 }
+
+
+/* Professional Hero Section */
+.hero {
+  padding: 60px 20px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #1e3a8a, #111827);
+  margin-bottom: 50px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.hero p {
+  margin-top: 10px;
+  color: #d1d5db;
+}
+
+/* Search Box Enhancement */
+.search-box {
+  max-width: 650px;
+  margin: 30px auto 0;
+}
+
+.search-box input {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.search-box button {
+  font-weight: 600;
+}

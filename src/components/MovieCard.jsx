@@ -31,9 +31,15 @@ function MovieCard({ movie }) {
       <div className="movie-info">
         <h3>{movie.Title}</h3>
 
-        <p className="movie-year">
-          {movie.Year}
-        </p>
+        <div className="movie-meta">
+          <span className="movie-year">
+            {movie.Year}
+          </span>
+
+          <span className="movie-type">
+            {movie.Type}
+          </span>
+        </div>
 
         <Link
           className="details-btn"

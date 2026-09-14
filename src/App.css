@@ -513,3 +513,46 @@
   font-size: 28px;
   margin-bottom: 25px;
 }
+
+.clear-btn {
+  margin-left: 8px;
+  padding: 14px 18px;
+  border: none;
+  border-radius: 8px;
+  background: #374151;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.clear-btn:hover {
+  background: #4b5563;
+}
+
+.clear-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+.movie-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.movie-year {
+  margin-bottom: 0;
+}
+
+.movie-type {
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: #374151;
+  color: #d1d5db;
+  font-size: 12px;
+  text-transform: capitalize;
+}

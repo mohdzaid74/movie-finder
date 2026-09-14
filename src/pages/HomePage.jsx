@@ -53,21 +53,29 @@ function HomePage() {
       setLoading(false);
     }
   };
+  const handleClear = () => {
+    setMovies([]);
+    setError("");
+  };
 
   return (
     <>
       <Header />
 
-      <main>
-        <section className="hero">
+      <main className="home">
+       
+       
+       <section className="hero">
           <h1>Find Your Favorite Movies</h1>
          <p>Search for movies and explore their details.</p>
 
           <SearchBar
           onSearch={handleSearch}
           loading={loading}
+          onClear={handleClear}
           />
         </section>
+
           {movies.length === 0 && !loading && !error && featuredMovies.length > 0 && (
         <section className="featured-section">
           <h2>Featured Movies</h2>
@@ -75,8 +83,8 @@ function HomePage() {
           <div className="movie-grid">
           {featuredMovies.map((movie) => (
           <MovieCard
-          key={movie.imdbID}
-          movie={movie}
+            key={movie.imdbID}
+            movie={movie}
           />
           ))}
             </div>
@@ -95,11 +103,17 @@ function HomePage() {
         )}
         {!loading && !error && movies.length > 0 && (
         <p className="results-count">
-        Found {movies.length} movies
-       </p>
+          Found {movies.length} movies
+        </p>
         )}
         
-        {!loading && !error && movies.length === 0 && (<p className="empty-message"> No movies found. Try searching another movie.</p>)} 
+        {!loading && !error && movies.length === 0 && featuredMovies.length === 0 && (
+          <p className="empty-message">
+            No movies found. Try searching another movie.
+          </p>
+        )}
+
+
         <div className="movie-grid">
           {movies.map((movie) => (
             <MovieCard

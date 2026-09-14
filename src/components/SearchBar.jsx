@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function SearchBar({ onSearch, loading }) {
+function SearchBar({ onSearch, loading, onClear }) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSearch = () => {
@@ -28,6 +28,18 @@ function SearchBar({ onSearch, loading }) {
       <button onClick={handleSearch} disabled={loading}>
         {loading ? "Searching..." : "Search"}
       </button>
+      {searchTerm && (
+        <button
+        className="clear-btn"
+        onClick={() => {
+        setSearchTerm("");
+        onClear();
+        }}
+        disabled={loading}
+      >
+        Clear
+      </button>
+      )}
     </div>
   );
 }

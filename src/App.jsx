@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import MovieDetailPage from "./pages/MovieDetailPage";
+import FavoritesPage from "./pages/FavoritesPage";
 import "./App.css";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/movies/:id" element={<MovieDetailPage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,11 +1,51 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function MovieCard({ movie }) {
+function MovieCard({ movie, onFavoriteChange }) {
   const [imageError, setImageError] = useState(false);
 
   const hasPoster =
     movie.Poster && movie.Poster !== "N/A";
+  
+  const [isFavorite, setIsFavorite] = useState(() => {
+  const favorites = JSON.parse(
+    localStorage.getItem("movieFavorites") || "[]"
+  );
+
+  return favorites.some(
+    (item) => item.imdbID === movie.imdbID
+  );
+});
+
+const toggleFavorite = () => {
+  const favorites = JSON.parse(
+    localStorage.getItem("movieFavorites") || "[]"
+  );
+
+  if (isFavorite) {
+    const updatedFavorites = favorites.filter(
+      (item) => item.imdbID !== movie.imdbID
+    );
+
+    localStorage.setItem(
+      "movieFavorites",
+      JSON.stringify(updatedFavorites)
+    );
+
+    setIsFavorite(false);
+    onFavoriteChange?.();
+  } else {
+    favorites.push(movie);
+
+    localStorage.setItem(
+      "movieFavorites",
+      JSON.stringify(favorites)
+    );
+
+    setIsFavorite(true);
+    onFavoriteChange?.();
+  }
+};
 
   return (
     <div className="movie-card">
@@ -40,6 +80,13 @@ function MovieCard({ movie }) {
             {movie.Type}
           </span>
         </div>
+
+        <button
+          className={`favorite-btn ${isFavorite ? "active" : ""}`}
+          onClick={toggleFavorite}
+          >
+          {isFavorite ? "❤️ Favorited" : "🤍 Add to Favorites"}
+        </button>
 
         <Link
           className="details-btn"

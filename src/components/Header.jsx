@@ -7,9 +7,13 @@ function Header() {
         MovieFinder
       </Link>
 
-      <nav>
+      <nav className="nav-menu">
         <Link className="nav-link" to="/">
           Home
+        </Link>
+
+        <Link className="nav-link" to="/favorites">
+          ❤️ Favorites
         </Link>
       </nav>
     </header>

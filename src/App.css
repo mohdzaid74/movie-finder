@@ -320,3 +320,196 @@
 .search-box button {
   font-weight: 600;
 }
+
+
+/* Professional Movie Cards */
+.movie-card {
+  position: relative;
+  background: #1f2937;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+}
+
+.movie-card img {
+  display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.movie-info {
+  padding: 18px;
+}
+
+.movie-info h3 {
+  font-size: 18px;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.movie-year {
+  font-size: 14px;
+  color: #9ca3af;
+  margin-bottom: 16px;
+}
+
+.details-btn {
+  display: inline-block;
+  padding: 9px 14px;
+  border-radius: 7px;
+  background: #2563eb;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.details-btn:hover {
+  background: #1d4ed8;
+}
+
+
+/* Professional Movie Details */
+.movie-detail {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.detail-poster img {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.detail-info h1 {
+  font-weight: 700;
+}
+
+.rating-badge {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: #374151;
+  font-weight: 600;
+  color: white;
+}
+
+.plot {
+  padding-top: 20px;
+  border-top: 1px solid #374151;
+}
+
+/* Professional Header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 18px 50px;
+  background: rgba(31, 41, 55, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #374151;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+}
+
+.logo:hover {
+  color: #60a5fa;
+}
+
+.nav-link {
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+
+
+
+/* Mobile Responsive Design */
+@media (max-width: 600px) {
+  .home {
+    padding: 30px 15px;
+  }
+
+  .hero {
+    padding: 40px 15px;
+    border-radius: 15px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .search-box input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .search-box button {
+    padding: 14px 16px;
+  }
+
+  .movie-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .movie-card img {
+    height: 250px;
+  }
+
+  .movie-info {
+    padding: 12px;
+  }
+
+  .movie-info h3 {
+    font-size: 16px;
+  }
+
+  .header {
+    padding: 15px 20px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .movie-detail {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 25px;
+  }
+
+  .detail-poster img {
+    width: 250px;
+  }
+
+  .detail-poster {
+    text-align: center;
+  }
+}
+
+/* Featured Movies */
+.featured-section {
+  margin-top: 30px;
+}
+
+.featured-section h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+}

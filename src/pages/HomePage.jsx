@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import SearchBar from "../components/SearchBar";
-import { searchMovies } from "../services/movieApi";
+import { searchMovies, getMovieDetails } from "../services/movieApi";
 import MovieCard from "../components/MovieCard";
 import Footer from "../components/Footer";
 
@@ -9,7 +9,32 @@ function HomePage() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [featuredMovies, setFeaturedMovies] = useState([]);
 
+  useEffect(() => {
+    const featuredIds = [
+      "tt1375666",
+      "tt0816692",
+      "tt0468569",
+      "tt4154796",
+      "tt10872600",
+      "tt0371746",
+    ];
+
+    async function loadFeaturedMovies() {
+      try {
+        const movies = await Promise.all(
+          featuredIds.map((id) => getMovieDetails(id))
+        );
+
+        setFeaturedMovies(movies);
+      } catch (error) {
+        console.error("Featured movies error:", error);
+      }
+    }
+
+    loadFeaturedMovies();
+  }, []);
   const handleSearch = async (query) => {
     if (!query.trim()) return;
 
@@ -43,7 +68,20 @@ function HomePage() {
           loading={loading}
           />
         </section>
+          {movies.length === 0 && !loading && !error && featuredMovies.length > 0 && (
+        <section className="featured-section">
+          <h2>Featured Movies</h2>
 
+          <div className="movie-grid">
+          {featuredMovies.map((movie) => (
+          <MovieCard
+          key={movie.imdbID}
+          movie={movie}
+          />
+          ))}
+            </div>
+           </section>
+        )}
         {loading && (
           <div className="loading-container">
           <div className="spinner"></div>

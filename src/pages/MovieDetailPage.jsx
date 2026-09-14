@@ -88,10 +88,9 @@ function MovieDetailPage() {
             <strong>Actors:</strong> {movie.Actors}
           </p>
 
-          <p>
-            <strong>IMDb Rating:</strong>{" "}
-            ⭐ {movie.imdbRating}
-          </p>
+          <div className="rating-badge">
+            ⭐ IMDb Rating: {movie.imdbRating}
+          </div>  
 
           <div className="plot">
             <h2>Plot</h2>

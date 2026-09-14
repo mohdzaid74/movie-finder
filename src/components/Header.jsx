@@ -3,11 +3,15 @@ import { Link } from "react-router-dom";
 function Header() {
   return (
     <header className="header">
-      <div className="logo">MovieFinder</div>
-
-      <Link className="nav-link" to="/">
-        Home
+      <Link className="logo" to="/">
+        MovieFinder
       </Link>
+
+      <nav>
+        <Link className="nav-link" to="/">
+          Home
+        </Link>
+      </nav>
     </header>
   );
 }
